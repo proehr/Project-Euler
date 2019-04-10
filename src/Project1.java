@@ -1,10 +1,12 @@
 public class Project1 {
-    public static void main(String[] args) {
 
+    private int calc(int n, int div){
+        int max=(n-1)/div;
+        return div*max*(max+1)/2;
     }
 
-    private int calc(int n){
-        int sum=0;
-        for(int i=0,i<)
+    public int solution(){
+       return calc(1000,3)+calc(1000,5)-calc(1000,15);
     }
+
 }
