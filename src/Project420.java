@@ -3,7 +3,6 @@ public class Project420 {
         int sum = 0;
         for(int x=10;x<n;x++){
             sum+=solution2(x);
-            System.out.println(x + " " + sum);
         }
         return sum ;
         /*int sum = 0;
@@ -44,7 +43,7 @@ public class Project420 {
 
     public int solution2(int n){
         int sum = 0;
-        for(int a=2;a<n-1;a++){
+        for(int a=2;a<n;a++){
             int d = n-a;
                 for(int k=2;k<n;k++){
                     int bc= a*d - k*k;
@@ -70,10 +69,10 @@ public class Project420 {
                                 sum += 1;
                             }
                             else{ sum+=2;}
-                            /*System.out.print("yeah" + a + " ");
+                            System.out.print(a + " ");
                             System.out.print(b+ " ");
                             System.out.print(c+ " ");
-                            System.out.println(d);*/
+                            System.out.println(d);
                         }
                     }
                 }
