@@ -7,11 +7,11 @@ public class Project420 {
                     for(int c=1;c<n*n;c++){
                         double x = Math.sqrt((a*d)-(b*c));
                         if(a*d==b*c){
-                            break;
+                            continue;
                         }
                         double y = Math.sqrt(a+d+2*x);
                         if(!checkIfPositive(a,d,x)){
-                            break;
+                            continue;
                         }
                         //System.out.print(a + " ");
                         //System.out.print(b+ " ");
