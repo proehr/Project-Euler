@@ -1,32 +1,83 @@
 public class Project420 {
     public int solution(int n){
         int sum = 0;
-        for(int a=1;a<n;a++){
-            for(int d=1;d<n-a;d++){
-                for(int b=1;b<n*n;b++){
-                    for(int c=1;c<n*n;c++){
+        for(int x=10;x<n;x++){
+            sum+=solution2(x);
+            System.out.println(x + " " + sum);
+        }
+        return sum ;
+        /*int sum = 0;
+        for(int a=2;a<n-1;a++){
+            for(int d=2;d<n-a;d++){
+                for(int b=2;b<n*n;b++){
+                    for(int c=b;c<((a*n - a*a)/b);c++){
                         double x = Math.sqrt((a*d)-(b*c));
-                        if(a*d==b*c){
+                        if(a*d<=b*c){
                             continue;
                         }
-                        double y = Math.sqrt(a+d+2*x);
-                        if(!checkIfPositive(a,d,x)){
+                        double y1 = Math.sqrt(a+d+2*x);
+                        double y2 = Math.sqrt(a+d-2*x);
+                        if(a-x<=0 || d-x<=0){
                             continue;
                         }
-                        //System.out.print(a + " ");
-                        //System.out.print(b+ " ");
-                        //System.out.println(c+ " ");
-                        //System.out.println(d);
 
-                        if(checkIfInt((a-x)/y) && checkIfInt((a+x)/y) &&
-                                checkIfInt(b/y) && checkIfInt(c/y) &&
-                                checkIfInt((d-x)/y) && checkIfInt((d+x)/y)){
-                            sum+=1;
+
+                        if(checkIfInt((a-x)/y2) && checkIfInt((a+x)/y1) &&
+                                checkIfInt(b/y1) && checkIfInt(c/y1) &&
+                                checkIfInt(b/y2) && checkIfInt(c/y2) &&
+                                checkIfInt((d-x)/y2) && checkIfInt((d+x)/y1)){
+                            if(c==b) {
+                                sum += 1;
+                            }
+                            else{ sum+=2;}
+                            System.out.print(a + " ");
+                            System.out.print(b+ " ");
+                            System.out.print(c+ " ");
+                            System.out.println(d);
                         }
                     }
                 }
             }
         }
+        return sum;*/
+    }
+
+    public int solution2(int n){
+        int sum = 0;
+        for(int a=2;a<n-1;a++){
+            int d = n-a;
+                for(int k=2;k<n;k++){
+                    int bc= a*d - k*k;
+                    for(int b=2;b<Math.sqrt(bc)+1;b++){
+                        if(!checkIfInt(bc*1.0/b)){continue;}
+                        int c=bc/b;
+                        double x = Math.sqrt((a*d)-(b*c));
+                        if(a*d<=b*c){
+                            continue;
+                        }
+                        double y1 = Math.sqrt(a+d+2*x);
+                        double y2 = Math.sqrt(a+d-2*x);
+                        if(a-x<=0 || d-x<=0){
+                            continue;
+                        }
+
+
+                        if(checkIfInt((a-x)/y2) && checkIfInt((a+x)/y1) &&
+                                checkIfInt(b/y1) && checkIfInt(c/y1) &&
+                                checkIfInt(b/y2) && checkIfInt(c/y2) &&
+                                checkIfInt((d-x)/y2) && checkIfInt((d+x)/y1)){
+                            if(c==b) {
+                                sum += 1;
+                            }
+                            else{ sum+=2;}
+                            /*System.out.print("yeah" + a + " ");
+                            System.out.print(b+ " ");
+                            System.out.print(c+ " ");
+                            System.out.println(d);*/
+                        }
+                    }
+                }
+            }
         return sum;
     }
 
@@ -41,10 +92,5 @@ public class Project420 {
         return false;
     }
 
-    public boolean checkIfPositive(int a, int d, double x){
-        if(a-x<=0 || d-x<=0){
-            return false;
-        }
-        return true;
-    }
+
 }
