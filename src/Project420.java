@@ -45,8 +45,11 @@ public class Project420 {
         int sum = 0;
         for(int a=2;a<n;a++){
             int d = n-a;
-                for(int k=2;k<n;k++){
+                for(int k=2;k<n/2;k++){
                     int bc= a*d - k*k;
+                    if(!checkIfInt(Math.sqrt(a*d-bc))){
+                        continue;
+                    }
                     for(int b=2;b<Math.sqrt(bc)+1;b++){
                         if(!checkIfInt(bc*1.0/b)){continue;}
                         int c=bc/b;
