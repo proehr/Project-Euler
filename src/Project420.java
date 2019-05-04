@@ -72,10 +72,10 @@ public class Project420 {
                                 sum += 1;
                             }
                             else{ sum+=2;}
-                            System.out.print(a + " ");
+                            /*System.out.print(a + " ");
                             System.out.print(b+ " ");
                             System.out.print(c+ " ");
-                            System.out.println(d);
+                            System.out.println(d);*/
                         }
                     }
                 }
