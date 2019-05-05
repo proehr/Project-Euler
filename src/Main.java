@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        Project420 pro420 =new Project420();
-        System.out.println(pro420.solution(100));
+        Project10 project10 = new Project10();
+        System.out.println(project10.solution());
     }
 }
